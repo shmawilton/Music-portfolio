@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silva Flute Orchestra | Wilton Onyango</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,26 +12,35 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav>
+                    <nav>
                 <div class="logo">
                     <i class="fas fa-music"></i>
                     Wilton Onyango
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="sfo.html" class="active">Silva Flute Orchestra</a></li>
                     <li><a href="awards.html">Awards</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1><i class="fas fa-flute"></i> Silva Flute Orchestra</h1>
+                <div class="sfo-logo-container">
+                    <img src="resources/sfo/sfo-logo.png" alt="Silva Flute Orchestra Logo" class="sfo-logo">
+                </div>
+                <h1>Silva Flute Orchestra</h1>
                 <p>Creating Opportunities for Flutists | Expanding Flute Repertoire in Kenya</p>
                 <a href="#about" class="btn">Learn More</a>
             </div>
@@ -53,9 +63,9 @@
                     <p>Our orchestra brings together talented flutists from various backgrounds, creating a unique sound that blends traditional and contemporary flute music. We are committed to showcasing the versatility of the flute family, from piccolo to bass flute, and to introducing audiences to the beauty of flute ensemble music.</p>
                     <p>Through regular performances, workshops, and collaborations, the Silva Flute Orchestra continues to grow and inspire both musicians and audiences alike.</p>
                 </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Programs Section -->
     <section class="highlights">
@@ -89,11 +99,11 @@
                     <div class="card-content">
                         <h3><i class="fas fa-handshake"></i> Collaborations</h3>
                         <p>Partnerships with other musical ensembles, composers, and cultural organizations to create unique musical experiences.</p>
-                    </div>
+                </div>
+                </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -110,15 +120,15 @@
                         <div>
                             <h4>Email</h4>
                             <p>wiltononflute@gmail.com</p>
-                        </div>
-                    </div>
+                </div>
+                </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
                             <p>+254 708 314 239</p>
-                        </div>
-                    </div>
+                </div>
+            </div>
                 </div>
                 <div class="contact-form">
                     <h3>Send a Message</h3>
@@ -139,46 +149,46 @@
                                 <option value="advanced">Advanced</option>
                                 <option value="professional">Professional</option>
                             </select>
-                        </div>
+                </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" class="form-control" required></textarea>
-                        </div>
+                </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+        <div class="footer-content">
+            <div class="footer-section">
                     <h3>Silva Flute Orchestra</h3>
                     <p>Creating opportunities for flutists and expanding the flute repertoire in Kenya through innovative ensemble music.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="sfo.html">Silva Flute Orchestra</a></li>
-                        <li><a href="awards.html">Awards</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sfo.html">Silva Flute Orchestra</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope"></i> wiltononflute@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +254 708 314 239</li>
                         <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Wilton Onyango. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Wilton Onyango. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -189,6 +199,32 @@
             e.preventDefault();
             alert('Thank you for your interest in the Silva Flute Orchestra! I will get back to you soon.');
             this.reset();
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         });
     </script>
 </body>

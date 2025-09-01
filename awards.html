@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awards & Achievements | Wilton Onyango</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,18 +12,24 @@
     <!-- Header -->
     <header>
         <div class="container">
-        <nav>
+                    <nav>
                 <div class="logo">
                     <i class="fas fa-music"></i>
                     Wilton Onyango
                 </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sfo.html">Silva Flute Orchestra</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sfo.html">Silva Flute Orchestra</a></li>
                     <li><a href="awards.html" class="active">Awards</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -68,6 +75,14 @@
                             <i class="fas fa-university"></i>
                             <span><strong>Organization:</strong> National Flute Association</span>
                         </div>
+                        <div class="detail-item">
+                            <i class="fas fa-link"></i>
+                            <span><strong>Official Announcement:</strong> <a href="https://www.nfaonline.org/about/about-the-nfa/nfa-news-updates/2025/03/17/2026-myrna-brown-international-scholarship-awarded-to-wilton-onyango" target="_blank" rel="noopener noreferrer">NFA Official Page</a></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span><strong>Published:</strong> March 17, 2025</span>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -84,6 +99,9 @@
                 <div class="card award-card">
                     <div class="award-icon">
                         <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="card-img">
+                        <img src="resources/personal/wilton-ghetto-classics.jpg" alt="Ghetto Classics">
                     </div>
                     <div class="card-content">
                         <h3>Ghetto Classics Leadership</h3>
@@ -230,7 +248,7 @@
                         <li><i class="fas fa-phone"></i> +254 708 314 239</li>
                         <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
                     </ul>
-                </div>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2023 Wilton Onyango. All rights reserved.</p>
@@ -244,6 +262,32 @@
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         });
     </script>
 </body>
