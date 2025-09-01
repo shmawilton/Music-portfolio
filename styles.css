@@ -1,12 +1,16 @@
+/* Import Musical Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
+
 /* Global Styles */
 :root {
-    --primary-color: #000000;
-    --secondary-color: #c0c0c0;
-    --accent-color: #ffd700;
-    --light-color: #f8f9fa;
-    --dark-color: #1a1a1a;
-    --silver-light: #e8e8e8;
-    --gold-dark: #b8860b;
+    --primary-color: #2c3e50;
+    --secondary-color: #8e44ad;
+    --accent-color: #3498db;
+    --light-color: #ecf0f1;
+    --dark-color: #34495e;
+    --silver-light: #bdc3c7;
+    --flute-silver: #95a5a6;
+    --flute-gold: #f39c12;
     --transition: all 0.3s ease;
 }
 
@@ -14,13 +18,64 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Kalam', cursive;
+}
+
+/* Musical Typography Classes */
+.musical-script {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+}
+
+.musical-handwriting {
+    font-family: 'Kalam', cursive;
+    font-weight: 400;
 }
 
 body {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e8e8e8 100%);
-    color: #000;
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    color: var(--primary-color);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Musical Elements */
+body::before {
+    content: '♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    font-size: 1.5rem;
+    color: rgba(52, 152, 219, 0.1);
+    z-index: -1;
+    animation: floatNotes 20s linear infinite;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 2;
+}
+
+body::after {
+    content: '♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯';
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.2rem;
+    color: rgba(142, 68, 173, 0.08);
+    z-index: -1;
+    animation: floatNotes 25s linear infinite reverse;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 3;
+}
+
+@keyframes floatNotes {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
 }
 
 .container {
@@ -155,6 +210,8 @@ nav {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     position: relative;
     z-index: 2;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
 }
 
 .hero h1 i {
@@ -170,12 +227,14 @@ nav {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     position: relative;
     z-index: 2;
+    font-family: 'Kalam', cursive;
+    font-weight: 400;
 }
 
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--gold-dark) 100%);
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+    color: white;
     padding: 0.8rem 1.8rem;
     border: 2px solid var(--accent-color);
     border-radius: 50px;
@@ -185,14 +244,15 @@ nav {
     animation: fadeIn 2s ease;
     position: relative;
     z-index: 2;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    font-family: 'Kalam', cursive;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--silver-light) 100%);
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--flute-silver) 100%);
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(142, 68, 173, 0.4);
     border-color: var(--secondary-color);
 }
 
@@ -212,6 +272,8 @@ section {
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
 }
 
 .section-title h2:after {
@@ -262,12 +324,48 @@ section {
 /* Highlights Section */
 .highlights {
     background-color: var(--light-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlights::before {
+    content: '♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 2rem;
+    color: rgba(52, 152, 219, 0.15);
+    z-index: 0;
+    animation: floatNotes 15s linear infinite;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 4;
+}
+
+.highlights::after {
+    content: '♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.8rem;
+    color: rgba(142, 68, 173, 0.12);
+    z-index: 0;
+    animation: floatNotes 18s linear infinite reverse;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 5;
 }
 
 .highlight-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .card {
@@ -310,10 +408,49 @@ section {
 }
 
 /* Contact Section */
+.contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.8rem;
+    color: rgba(52, 152, 219, 0.1);
+    z-index: 0;
+    animation: floatNotes 14s linear infinite;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 3;
+}
+
+.contact::after {
+    content: '♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.5rem;
+    color: rgba(142, 68, 173, 0.08);
+    z-index: 0;
+    animation: floatNotes 17s linear infinite reverse;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 4;
+}
+
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info {
@@ -734,6 +871,40 @@ footer {
 .gallery-section {
     background: linear-gradient(135deg, var(--light-color) 0%, var(--silver-light) 100%);
     padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-section::before {
+    content: '♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫ ♪ ♫';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.8rem;
+    color: rgba(52, 152, 219, 0.12);
+    z-index: 0;
+    animation: floatNotes 12s linear infinite;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 3;
+}
+
+.gallery-section::after {
+    content: '♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯ ♩ ♪ ♫ ♬ ♭ ♮ ♯';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    font-size: 1.5rem;
+    color: rgba(142, 68, 173, 0.1);
+    z-index: 0;
+    animation: floatNotes 16s linear infinite reverse;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 4;
 }
 
 .gallery-section .section-title p {
@@ -749,6 +920,8 @@ footer {
     grid-auto-rows: 200px;
     gap: 0.8rem;
     margin-top: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .gallery-item {
@@ -930,6 +1103,139 @@ footer {
 .gallery-item:nth-child(12) { animation-delay: 1.2s; }
 .gallery-item:nth-child(13) { animation-delay: 1.3s; }
 
+/* SFO Statistics Cards */
+.sfo-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.2);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.2), transparent);
+    transition: var(--transition);
+}
+
+.stat-card:hover::before {
+    left: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: var(--accent-color);
+    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.3);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: white;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.stat-card:nth-child(1) .stat-icon { animation-delay: 0.1s; }
+.stat-card:nth-child(2) .stat-icon { animation-delay: 0.3s; }
+.stat-card:nth-child(3) .stat-icon { animation-delay: 0.5s; }
+.stat-card:nth-child(4) .stat-icon { animation-delay: 0.7s; }
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Dancing Script', cursive;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enhanced Gallery Animations for SFO */
+.gallery-section .gallery-item {
+    position: relative;
+}
+
+.gallery-section .gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.gallery-section .gallery-item:hover::after {
+    opacity: 1;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+/* SFO Gallery Specific Styling */
+.gallery-section .section-title h2 i {
+    color: var(--accent-color);
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Pulse animation for gallery items */
+@keyframes galleryPulse {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    }
+}
+
+.gallery-section .gallery-item {
+    animation: galleryPulse 4s ease-in-out infinite;
+}
+
+.gallery-section .gallery-item:nth-child(1) { animation-delay: 0.2s; }
+.gallery-section .gallery-item:nth-child(2) { animation-delay: 0.4s; }
+.gallery-section .gallery-item:nth-child(3) { animation-delay: 0.6s; }
+.gallery-section .gallery-item:nth-child(4) { animation-delay: 0.8s; }
+.gallery-section .gallery-item:nth-child(5) { animation-delay: 1.0s; }
+.gallery-section .gallery-item:nth-child(6) { animation-delay: 1.2s; }
+.gallery-section .gallery-item:nth-child(7) { animation-delay: 1.4s; }
+.gallery-section .gallery-item:nth-child(8) { animation-delay: 1.6s; }
+.gallery-section .gallery-item:nth-child(9) { animation-delay: 1.8s; }
+
 /* Responsive Design */
 
 /* Large Tablets and Small Laptops */
@@ -970,6 +1276,11 @@ footer {
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 0.6rem;
+    }
+    
+    .sfo-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .nav-links li {
@@ -1102,6 +1413,19 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    
+    .sfo-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
 }
 
 /* Small Mobile Devices */
@@ -1175,6 +1499,20 @@ footer {
     
     .stat-label {
         font-size: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
     }
 }
 
